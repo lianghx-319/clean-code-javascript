@@ -2,17 +2,17 @@
 
 ## 内容大纲
   1. [简介](#简介)
-  2. [变量](#variables)
-  3. [函数](#functions)
-  4. [对象与数据结构](#objects-and-data-structures)
-  5. [类](#classes)
-  6. [SOLID 原则](#solid)
-  7. [测试](#testing)
-  8. [异步编程](#concurrency)
-  9. [错误捕获](#error-handling)
-  10. [格式化](#formatting)
-  11. [注释](#comments)
-  12. [多语言版本](#translation)
+  2. [变量](#变量)
+  3. [函数](#函数)
+  4. [对象与数据结构](#对象与数据结构)
+  5. [类](#类)
+  6. [SOLID原则](#SOLID原则)
+  7. [测试](#测试)
+  8. [异步编程](#异步编程)
+  9. [错误捕获](#错误捕获)
+  10. [格式化](#格式化)
+  11. [注释](#注释)
+  12. [多语言版本](#多语言版本)
 
 ## 简介
 ![Humorous image of software quality estimation as a count of how many expletives
@@ -40,7 +40,7 @@ shaped into its final form. Finally, we chisel away the imperfections when
 we review it with our peers. Don't beat yourself up for first drafts that need
 improvement. Beat up the code instead!
 
-## **Variables**
+## **变量**
 ### Use meaningful and pronounceable variable names
 
 **Bad:**
@@ -52,7 +52,7 @@ const yyyymmdstr = moment().format('YYYY/MM/DD');
 ```javascript
 const currentDate = moment().format('YYYY/MM/DD');
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Use the same vocabulary for the same type of variable
 
@@ -67,7 +67,7 @@ getCustomerRecord();
 ```javascript
 getUser();
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Use searchable names
 We will read more code than we will ever write. It's important that the code we
@@ -93,7 +93,7 @@ const MILLISECONDS_IN_A_DAY = 86400000;
 setTimeout(blastOff, MILLISECONDS_IN_A_DAY);
 
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Use explanatory variables
 **Bad:**
@@ -110,7 +110,7 @@ const cityZipCodeRegex = /^[^,\\]+[,\\\s]+(.+?)\s*(\d{5})?$/;
 const [, city, zipCode] = address.match(cityZipCodeRegex) || [];
 saveCityZipCode(city, zipCode);
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Avoid Mental Mapping
 Explicit is better than implicit.
@@ -141,7 +141,7 @@ locations.forEach((location) => {
   dispatch(location);
 });
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Don't add unneeded context
 If your class/object name tells you something, don't repeat that in your
@@ -172,7 +172,7 @@ function paintCar(car) {
   car.color = 'Red';
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Use default arguments instead of short circuiting or conditionals
 Default arguments are often cleaner than short circuiting. Be aware that if you
@@ -196,9 +196,9 @@ function createMicrobrewery(name = 'Hipster Brew Co.') {
 }
 
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
-## **Functions**
+## **函数**
 ### Function arguments (2 or fewer ideally)
 Limiting the amount of function parameters is incredibly important because it
 makes testing your function easier. Having more than three leads to a
@@ -247,7 +247,7 @@ createMenu({
   cancellable: true
 });
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 
 ### Functions should do one thing
@@ -282,7 +282,7 @@ function isActiveClient(client) {
   return clientRecord.isActive();
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Function names should say what they do
 
@@ -307,7 +307,7 @@ function addMonthToDate(month, date) {
 const date = new Date();
 addMonthToDate(1, date);
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Functions should only be one level of abstraction
 When you have more than one level of abstraction your function is usually
@@ -375,7 +375,7 @@ function parse(tokens) {
   return syntaxTree;
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Remove duplicate code
 Do your absolute best to avoid duplicate code. Duplicate code is bad because it
@@ -457,7 +457,7 @@ function showEmployeeList(employees) {
   });
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Set default objects with Object.assign
 
@@ -503,7 +503,7 @@ function createMenu(config) {
 
 createMenu(menuConfig);
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 
 ### Don't use flags as function parameters
@@ -530,7 +530,7 @@ function createTempFile(name) {
   createFile(`./temp/${name}`);
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Avoid Side Effects (part 1)
 A function produces a side effect if it does anything other than take a value in
@@ -575,7 +575,7 @@ const newName = splitIntoFirstAndLastName(name);
 console.log(name); // 'Ryan McDermott';
 console.log(newName); // ['Ryan', 'McDermott'];
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Avoid Side Effects (part 2)
 In JavaScript, primitives are passed by value and objects/arrays are passed by
@@ -624,7 +624,7 @@ const addItemToCart = (cart, item) => {
 };
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Don't write to global functions
 Polluting globals is a bad practice in JavaScript because you could clash with another
@@ -654,7 +654,7 @@ class SuperArray extends Array {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Favor functional programming over imperative programming
 JavaScript isn't a functional language in the way that Haskell is, but it has
@@ -707,7 +707,7 @@ const programmerOutput = [
 const totalOutput = programmerOutput
   .reduce((totalLines, output) => totalLines + output.linesOfCode, 0)
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Encapsulate conditionals
 
@@ -728,7 +728,7 @@ if (shouldShowSpinner(fsmInstance, listNodeInstance)) {
   // ...
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Avoid negative conditionals
 
@@ -753,7 +753,7 @@ if (isDOMNodePresent(node)) {
   // ...
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Avoid conditionals
 This seems like an impossible task. Upon first hearing this, most people say,
@@ -809,7 +809,7 @@ class Cessna extends Airplane {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Avoid type-checking (part 1)
 JavaScript is untyped, which means your functions can take any type of argument.
@@ -834,7 +834,7 @@ function travelToTexas(vehicle) {
   vehicle.move(this.currentLocation, new Location('texas'));
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Avoid type-checking (part 2)
 If you are working with basic primitive values like strings and integers,
@@ -865,7 +865,7 @@ function combine(val1, val2) {
   return val1 + val2;
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Don't over-optimize
 Modern browsers do a lot of optimization under-the-hood at runtime. A lot of
@@ -890,7 +890,7 @@ for (let i = 0; i < list.length; i++) {
   // ...
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Remove dead code
 Dead code is just as bad as duplicate code. There's no reason to keep it in
@@ -921,9 +921,9 @@ function newRequestModule(url) {
 const req = newRequestModule;
 inventoryTracker('apples', req, 'www.inventory-awesome.io');
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
-## **Objects and Data Structures**
+## **对象与数据结构**
 ### Use getters and setters
 Using getters and setters to access data on objects could be better than simply
 looking for a property on an object. "Why?" you might ask. Well, here's an
@@ -980,7 +980,7 @@ function makeBankAccount() {
 const account = makeBankAccount();
 account.setBalance(100);
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 
 ### Make objects have private members
@@ -1018,10 +1018,10 @@ console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe
 delete employee.name;
 console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 
-## **Classes**
+## **类**
 ### Prefer ES2015/ES6 classes over ES5 plain functions
 It's very difficult to get readable class inheritance, construction, and method
 definitions for classical ES5 classes. If you need inheritance (and be aware
@@ -1095,7 +1095,7 @@ class Human extends Mammal {
   speak() { /* ... */ }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 
 ### Use method chaining
@@ -1174,7 +1174,7 @@ const car = new Car('Ford','F-150','red')
   .setColor('pink')
   .save();
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Prefer composition over inheritance
 As stated famously in [*Design Patterns*](https://en.wikipedia.org/wiki/Design_Patterns) by the Gang of Four,
@@ -1240,9 +1240,9 @@ class Employee {
   // ...
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
-## **SOLID**
+## **SOLID原则**
 ### Single Responsibility Principle (SRP)
 As stated in Clean Code, "There should never be more than one reason for a class
 to change". It's tempting to jam-pack a class with a lot of functionality, like
@@ -1298,7 +1298,7 @@ class UserSettings {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Open/Closed Principle (OCP)
 As stated by Bertrand Meyer, "software entities (classes, modules, functions,
@@ -1385,7 +1385,7 @@ class HttpRequester {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Liskov Substitution Principle (LSP)
 This is a scary term for a very simple concept. It's formally defined as "If S
@@ -1500,7 +1500,7 @@ function renderLargeShapes(shapes) {
 const shapes = [new Rectangle(4, 5), new Rectangle(4, 5), new Square(5)];
 renderLargeShapes(shapes);
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Interface Segregation Principle (ISP)
 JavaScript doesn't have interfaces so this principle doesn't apply as strictly
@@ -1575,7 +1575,7 @@ const $ = new DOMTraverser({
   }
 });
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Dependency Inversion Principle (DIP)
 This principle states two essential things:
@@ -1670,9 +1670,9 @@ class InventoryRequesterV2 {
 const inventoryTracker = new InventoryTracker(['apples', 'bananas'], new InventoryRequesterV2());
 inventoryTracker.requestItems();
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
-## **Testing**
+## **测试**
 Testing is more important than shipping. If you have no tests or an
 inadequate amount, then every time you ship code you won't be sure that you
 didn't break anything. Deciding on what constitutes an adequate amount is up
@@ -1737,9 +1737,9 @@ describe('MakeMomentJSGreatAgain', () => {
   });
 });
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
-## **Concurrency**
+## **异步编程**
 ### Use Promises, not callbacks
 Callbacks aren't clean, and they cause excessive amounts of nesting. With ES2015/ES6,
 Promises are a built-in global type. Use them!
@@ -1782,7 +1782,7 @@ get('https://en.wikipedia.org/wiki/Robert_Cecil_Martin')
   });
 
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Async/Await are even cleaner than Promises
 Promises are a very clean alternative to callbacks, but ES2017/ES8 brings async and await
@@ -1824,10 +1824,10 @@ async function getCleanCodeArticle() {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 
-## **Error Handling**
+## **错误捕获**
 Thrown errors are a good thing! They mean the runtime has successfully
 identified when something in your program has gone wrong and it's letting
 you know by stopping function execution on the current stack, killing the
@@ -1897,10 +1897,10 @@ getdata()
   });
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 
-## **Formatting**
+## **格式化**
 Formatting is subjective. Like many rules herein, there is no hard and fast
 rule that you must follow. The main point is DO NOT ARGUE over formatting.
 There are [tons of tools](http://standardjs.com/rules.html) to automate this.
@@ -1944,7 +1944,7 @@ function restoreDatabase() {}
 class Animal {}
 class Alpaca {}
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 
 ### Function callers and callees should be close
@@ -2030,9 +2030,9 @@ const review = new PerformanceReview(employee);
 review.perfReview();
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
-## **Comments**
+## **注释**
 ### Only comment things that have business logic complexity.
 Comments are an apology, not a requirement. Good code *mostly* documents itself.
 
@@ -2074,7 +2074,7 @@ function hashIt(data) {
 }
 
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Don't leave commented out code in your codebase
 Version control exists for a reason. Leave old code in your history.
@@ -2091,7 +2091,7 @@ doStuff();
 ```javascript
 doStuff();
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Don't have journal comments
 Remember, use version control! There's no need for dead code, commented code,
@@ -2116,7 +2116,7 @@ function combine(a, b) {
   return a + b;
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
 ### Avoid positional markers
 They usually just add noise. Let the functions and variable names along with the
@@ -2151,9 +2151,9 @@ const actions = function() {
   // ...
 };
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
 
-## Translation
+## 多语言版本
 
 This is also available in other languages:
 
@@ -2175,4 +2175,4 @@ This is also available in other languages:
   - ![it](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Italian**:
   [frappacchio/clean-code-javascript/](https://github.com/frappacchio/clean-code-javascript/)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 顶部](#内容大纲)**
