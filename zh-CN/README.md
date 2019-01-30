@@ -1,7 +1,7 @@
 # javascript 代码整洁之道
 
 ## 内容大纲
-  1. [简介](#introduction)
+  1. [简介](#简介)
   2. [变量](#variables)
   3. [函数](#functions)
   4. [对象与数据结构](#objects-and-data-structures)
