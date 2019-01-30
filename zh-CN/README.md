@@ -14,19 +14,18 @@
   11. [注释](#comments)
   12. [多语言版本](#translation)
 
-## Introduction
+## 简介
 ![Humorous image of software quality estimation as a count of how many expletives
 you shout when reading code](http://www.osnews.com/images/comics/wtfm.jpg)
 
 将源自 Robert C. Martin 的 
-[*Clean Code*](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882),
+[*Clean Code*](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)，
 一书中的软件工程原则应用到 Javascript 中。这并不是一个代码风格指南，而是一个编写 
-[可读的, 可重用的, 以及可重构的](https://github.com/ryanmcdermott/3rs-of-software-architecture) JavaScript 程序的指南。
+[可读的，可重用的，以及可重构的](https://github.com/ryanmcdermott/3rs-of-software-architecture) JavaScript 程序的指南。
 
 这里的每一项原则并不是必须遵循的，有一些甚至很少有广泛的认可。
-因此这仅仅是一些指南，不过
-这是由 
-*Clean Code* 的作者多年代码总结出来的经验。
+因此这仅仅是一些指南，不过这是由 
+*Clean Code* 的作者多年总结出来的经验。
 
 Our craft of software engineering is just a bit over 50 years old, and we are
 still learning a lot. When software architecture is as old as architecture
