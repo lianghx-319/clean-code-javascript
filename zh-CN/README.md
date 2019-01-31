@@ -1,4 +1,4 @@
-# javascript 代码整洁之道
+# Javascript 代码整洁之道
 
 ## 内容大纲
   1. [简介](#简介)
@@ -23,41 +23,45 @@ you shout when reading code](http://www.osnews.com/images/comics/wtfm.jpg)
 一书中的软件工程原则应用到 Javascript 中。这并不是一个代码风格指南，而是一个编写 
 [可读的，可重用的，以及可重构的](https://github.com/ryanmcdermott/3rs-of-software-architecture) JavaScript 程序的指南。
 
-这里的每一项原则并不是必须遵循的，有一些甚至很少有广泛的认可。
+这里的每一项原则并不是必须遵循的，
+有一些甚至很少有广泛的认可。
 因此这仅仅是一些指南，不过这是由 
 *Clean Code* 的作者多年总结出来的经验。
 
-Our craft of software engineering is just a bit over 50 years old, and we are
-still learning a lot. When software architecture is as old as architecture
-itself, maybe then we will have harder rules to follow. For now, let these
-guidelines serve as a touchstone by which to assess the quality of the
-JavaScript code that you and your team produce.
+我们软件工程行业仅仅发展了50年，
+我们仍然有很多地方需要学习。当软件架构和建筑架构一样古老时，
+也许也会有许多硬性的规范需要去遵守。
+而现在，这份指南可以充当你和你的团队编写高质量 Javascript 代码的
+标准。
 
-One more thing: knowing these won't immediately make you a better software
-developer, and working with them for many years doesn't mean you won't make
-mistakes. Every piece of code starts as a first draft, like wet clay getting
+还有一件事: 遵循这些指引并不会让你很快的成为一个优秀的软件开发者，
+也并不意味着你在今后的工作中不会犯错。
+Every piece of code starts as a first draft, like wet clay getting
 shaped into its final form. Finally, we chisel away the imperfections when
 we review it with our peers. Don't beat yourself up for first drafts that need
 improvement. Beat up the code instead!
 
 ## **变量**
-### Use meaningful and pronounceable variable names
+### 使用有具体解释意义的变量名
 
 **Bad:**
 ```javascript
+// yyyymmd字符串？
 const yyyymmdstr = moment().format('YYYY/MM/DD');
 ```
 
 **Good:**
 ```javascript
+// 当前日期
 const currentDate = moment().format('YYYY/MM/DD');
 ```
 **[⬆ 顶部](#内容大纲)**
 
-### Use the same vocabulary for the same type of variable
+### 为同一个意思的变量统一一个词汇
 
 **Bad:**
 ```javascript
+// user client customer 都是表达了用户
 getUserInfo();
 getClientData();
 getCustomerRecord();
@@ -65,13 +69,14 @@ getCustomerRecord();
 
 **Good:**
 ```javascript
+// 因此统一使用一个 user || client || customer 就可以了
 getUser();
 ```
 **[⬆ 顶部](#内容大纲)**
 
-### Use searchable names
-We will read more code than we will ever write. It's important that the code we
-do write is readable and searchable. By *not* naming variables that end up
+### 使用可检索的名称
+我们需要阅读的代码比写的远远要多。
+It's important that the code we do write is readable and searchable. By *not* naming variables that end up
 being meaningful for understanding our program, we hurt our readers.
 Make your names searchable. Tools like
 [buddy.js](https://github.com/danielstjules/buddy.js) and
